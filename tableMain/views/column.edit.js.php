@@ -171,19 +171,19 @@ window.tablemodulerme_column_edit_form = new class {
 			}
 		}
 
-		// Sparkline.
-		const sparkline_show = display_value_as == <?= CWidgetFieldColumnsList::DISPLAY_VALUE_AS_NUMERIC ?>
-			&& display == <?= CWidgetFieldColumnsList::DISPLAY_SPARKLINE ?>;
+		// Sparkline - Disabled for Zabbix 7.0 compatibility (only available in 7.2+)
+		// const sparkline_show = display_value_as == <?= CWidgetFieldColumnsList::DISPLAY_VALUE_AS_NUMERIC ?>
+		// 	&& display == <?= CWidgetFieldColumnsList::DISPLAY_SPARKLINE ?>;
 
-		for (const element of this.#form.querySelectorAll('.js-sparkline-row')) {
-			element.style.display = sparkline_show ? '' : 'none';
+		// for (const element of this.#form.querySelectorAll('.js-sparkline-row')) {
+		// 	element.style.display = sparkline_show ? '' : 'none';
 
-			for (const input of element.querySelectorAll('input')) {
-				input.disabled = !sparkline_show;
-			}
-		}
+		// 	for (const input of element.querySelectorAll('input')) {
+		// 		input.disabled = !sparkline_show;
+		// 	}
+		// }
 
-		this.#form.fields['sparkline[time_period]'].disabled = !sparkline_show;
+		// this.#form.fields['sparkline[time_period]'].disabled = !sparkline_show;
 
 		// Min/Max.
 		const min_max_show = display_value_as == <?= CWidgetFieldColumnsList::DISPLAY_VALUE_AS_NUMERIC ?>  && [

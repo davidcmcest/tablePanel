@@ -4,9 +4,9 @@
 	"type": "widget",
 	"name": "Table",
 	"namespace": "TableModuleRME",
-	"version": "1.0",
+	"version": "1.0-zabbix7.0",
 	"author": "",
-	"description": "A flexible table widget for the Zabbix Dashboards",
+	"description": "A flexible table widget for the Zabbix Dashboards (Zabbix 7.0 compatible - sparkline features disabled)",
 	"widget": {
 		"in": {
 			"hostids": {

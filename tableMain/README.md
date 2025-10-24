@@ -29,11 +29,12 @@ A **powerful table widget** with advanced functionality for the Zabbix dashboard
 
 ## 📦 Required Zabbix Version
 
-- The branches of this widget correspond to the matching Zabbix branch.  
+- The branches of this widget correspond to the matching Zabbix branch.
   Please clone the branch version that matches your Zabbix version.
 - **Available Versions**:
   - `7.4`
   - `7.2`
+  - `7.0` (This version - Sparkline display option disabled due to API limitations)
 
 ---
 

@@ -7,7 +7,7 @@ use CWidgetsData;
 use DB;
 use Zabbix\Widgets\CWidgetField;
 use Zabbix\Widgets\Fields\CWidgetFieldTimePeriod;
-use Zabbix\Widgets\Fields\CWidgetFieldSparkline;
+// Note: CWidgetFieldSparkline removed for Zabbix 7.0 compatibility (only available in 7.2+)
 
 class CWidgetFieldColumnsList extends CWidgetField {
 
@@ -49,7 +49,7 @@ class CWidgetFieldColumnsList extends CWidgetField {
 			'from' => 'now-1h',
 			'to' => 'now'
 		],
-		'history'	=> CWidgetFieldSparkline::DATA_SOURCE_AUTO
+		'history'	=> 0  // DATA_SOURCE_AUTO value (hardcoded for Zabbix 7.0 compatibility)
 	];
 
 
@@ -97,22 +97,23 @@ class CWidgetFieldColumnsList extends CWidgetField {
 		foreach ($columns_values as $column_index => &$value) {
 			$fields = [];
 
-			if ($value['display_value_as'] == self::DISPLAY_VALUE_AS_NUMERIC
-					&& $value['display'] == self::DISPLAY_SPARKLINE) {
-				$sparkline = (new CWidgetFieldSparkline($this->name.'.'.$column_index.'.sparkline', null,
-					['color' => ['use_default' => false]]
-				))
-					->setInType(CWidgetsData::DATA_TYPE_TIME_PERIOD)
-					->acceptDashboard()
-					->setDefault(CWidgetFieldColumnsList::SPARKLINE_DEFAULT)
-					->acceptWidget();
+			// Sparkline support disabled for Zabbix 7.0 compatibility (CWidgetFieldSparkline only available in 7.2+)
+			// if ($value['display_value_as'] == self::DISPLAY_VALUE_AS_NUMERIC
+			// 		&& $value['display'] == self::DISPLAY_SPARKLINE) {
+			// 	$sparkline = (new CWidgetFieldSparkline($this->name.'.'.$column_index.'.sparkline', null,
+			// 		['color' => ['use_default' => false]]
+			// 	))
+			// 		->setInType(CWidgetsData::DATA_TYPE_TIME_PERIOD)
+			// 		->acceptDashboard()
+			// 		->setDefault(CWidgetFieldColumnsList::SPARKLINE_DEFAULT)
+			// 		->acceptWidget();
 
-				if (array_key_exists('sparkline', $value)) {
-					$sparkline->setValue($value['sparkline']);
-				}
+			// 	if (array_key_exists('sparkline', $value)) {
+			// 		$sparkline->setValue($value['sparkline']);
+			// 	}
 
-				$fields['sparkline'] = $sparkline;
-			}
+			// 	$fields['sparkline'] = $sparkline;
+			// }
 
 			if ($value['aggregate_function'] != AGGREGATE_NONE) {
 				$time_period_field = (new CWidgetFieldTimePeriod($this->name.'.'.$column_index.'.time_period',

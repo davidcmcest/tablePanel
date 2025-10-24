@@ -7,7 +7,7 @@
  */
 
 use Modules\TableModuleRME\Includes\CWidgetFieldColumnsList;
-use Zabbix\Widgets\Fields\CWidgetFieldSparkline;
+// Note: CWidgetFieldSparkline removed for Zabbix 7.0 compatibility (only available in 7.2+)
 
 $form = (new CForm())
 	->setId('tablemodulerme_column_edit_form')
@@ -141,24 +141,25 @@ $form_grid->addItem([
 			->addValue(_('As is'), CWidgetFieldColumnsList::DISPLAY_AS_IS)
 			->addValue(_('Bar'), CWidgetFieldColumnsList::DISPLAY_BAR)
 			->addValue(_('Indicators'), CWidgetFieldColumnsList::DISPLAY_INDICATORS)
-			->addValue(_('Sparkline'), CWidgetFieldColumnsList::DISPLAY_SPARKLINE)
+			// Sparkline option removed for Zabbix 7.0 compatibility (only available in 7.2+)
+			// ->addValue(_('Sparkline'), CWidgetFieldColumnsList::DISPLAY_SPARKLINE)
 			->setModern()
 	))->addClass('js-display-row')
 ]);
 
-// Sparkline.
-$sparkline = (new CWidgetFieldSparklineView(
-	(new CWidgetFieldSparkline('sparkline', _('Sparkline')))
-		->setInType(CWidgetsData::DATA_TYPE_TIME_PERIOD)
-		->acceptDashboard()
-		->acceptWidget()
-		->setValue($data['sparkline'])
-))->setFormName($form->getName());
+// Sparkline - Disabled for Zabbix 7.0 compatibility (only available in 7.2+)
+// $sparkline = (new CWidgetFieldSparklineView(
+// 	(new CWidgetFieldSparkline('sparkline', _('Sparkline')))
+// 		->setInType(CWidgetsData::DATA_TYPE_TIME_PERIOD)
+// 		->acceptDashboard()
+// 		->acceptWidget()
+// 		->setValue($data['sparkline'])
+// ))->setFormName($form->getName());
 
-$form_grid->addItem([
-	$sparkline->getLabel()->addClass('js-sparkline-row'),
-	$sparkline->getView()->addClass('js-sparkline-row')
-]);
+// $form_grid->addItem([
+// 	$sparkline->getLabel()->addClass('js-sparkline-row'),
+// 	$sparkline->getView()->addClass('js-sparkline-row')
+// ]);
 
 // Min.
 $form_grid->addItem([
@@ -442,7 +443,8 @@ $form
 
 $output = [
 	'header' => array_key_exists('edit', $data) ? _('Update column') : _('New column'),
-	'script_inline' => $sparkline->getJavaScript().$this->readJsFile('column.edit.js.php', null, ''),
+	// Sparkline JS removed for Zabbix 7.0 compatibility
+	'script_inline' => $this->readJsFile('column.edit.js.php', null, ''),
 	'body' => $form->toString(),
 	'buttons' => [
 		[

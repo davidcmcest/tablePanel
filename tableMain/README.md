@@ -38,6 +38,23 @@ A **powerful table widget** with advanced functionality for the Zabbix dashboard
 
 ---
 
+## 🇪🇸 Spanish Translation / Traducción al Español
+
+A complete Spanish translation script is available in the repository root!
+
+Un script de traducción completa al español está disponible en la raíz del repositorio!
+
+**Quick Start / Inicio Rápido:**
+```bash
+cd /usr/share/zabbix/modules/tableMain
+sudo ./translate_to_spanish.sh
+sudo systemctl restart httpd
+```
+
+📖 [Full Documentation / Documentación Completa](../TRADUCCION_ESPANOL.md)
+
+---
+
 ## 🎯 Purpose
 
 Zabbix is an incredibly powerful monitoring and observability platform, but one of the biggest complaints has historically been the **usability of the UI and visualizations**.  

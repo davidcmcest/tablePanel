@@ -6,17 +6,26 @@ This script completely translates the Table widget to Spanish, including all lab
 
 ## 📋 Qué se traduce / What gets translated
 
+**Más de 120 cadenas de texto traducidas** / **Over 120 translated strings**
+
 ### 1. Etiquetas de campos / Field Labels
 - Host groups → Grupos de hosts
 - Item filter → Filtro de items
 - Layout → Diseño
 - Display → Visualización
-- Y más de 50 etiquetas más...
+- Y más de 50 etiquetas más... / And 50+ more labels...
 
 ### 2. Textos de ayuda (iconos ❓) / Help texts (❓ icons)
-Todos los tooltips que aparecen al pasar el mouse sobre los iconos de interrogación.
+**TODOS los tooltips** que aparecen al pasar el mouse sobre los iconos de interrogación:
 
-All tooltips that appear when hovering over question mark icons.
+**ALL tooltips** that appear when hovering over question mark icons:
+- Descripciones de diseños (Horizontal, Vertical, 3 Columnas, Columna por patrón)
+- Explicaciones de agrupación de items
+- Ayuda de configuración de barras
+- Opciones de difusión de host
+- Notas sobre agregación de todos los hosts
+- Funcionalidad de fila de reinicio
+- Y 30+ tooltips más / And 30+ more tooltips
 
 ### 3. Placeholders y mensajes / Placeholders and messages
 - "Set custom display text" → "Establecer texto de visualización personalizado"

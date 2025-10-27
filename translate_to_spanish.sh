@@ -1,6 +1,6 @@
 #!/bin/bash
-# Script completo para traducir el widget Table a español (incluyendo ayudas)
-# Complete script to translate the Table widget to Spanish (including help texts)
+# Script completo para traducir el widget Table a español (incluyendo TODOS los textos de ayuda)
+# Complete script to translate the Table widget to Spanish (including ALL help texts)
 
 WIDGET_DIR="/usr/share/zabbix/modules/tableMain"
 
@@ -72,6 +72,50 @@ sed -i "s/_('Item name')/_('Nombre de item')/g" "$FILE"
 sed -i "s/_('Host')/_('Host')/g" "$FILE"
 
 # ============================================
+# TRADUCCIONES - widget.edit.php (TEXTOS DE AYUDA)
+# ============================================
+echo "📝 Traduciendo widget.edit.php (textos de ayuda)..."
+echo "📝 Translating widget.edit.php (help texts)..."
+FILE="$WIDGET_DIR/views/widget.edit.php"
+
+# Textos de ayuda de widget.edit.php
+sed -i "s/_('Choose whether you want to filter using itemids or tags from the filtering widget widget')/_('Elige si quieres filtrar usando IDs de items o etiquetas del widget de filtrado')/g" "$FILE"
+sed -i "s/_('Currently, only the Item navigator widget broadcasts tags, but only if the Item navigator is configured with a \\\\\'Group by\\\\' of \\\\\'Item tag value\\\\\'')/_('Actualmente, solo el widget Navegador de items transmite etiquetas, pero solo si el Navegador de items está configurado con Agrupar por valor de etiqueta de item')/g" "$FILE"
+sed -i "s/_('Checking this box means that this widget will only display metrics when there is an Item filter set')/_('Marcar esta casilla significa que este widget solo mostrará métricas cuando haya un filtro de items configurado')/g" "$FILE"
+sed -i "s/_('If the Item filter is a widget, a selection from that referred widget is the only way this widget will display metrics')/_('Si el filtro de items es un widget, una selección de ese widget referido es la única forma en que este widget mostrará métricas')/g" "$FILE"
+sed -i "s/_('Horizontal - Host in first column. Values per item\/metrics in subsequent columns')/_('Horizontal - Host en la primera columna. Valores por item\/métricas en columnas subsiguientes')/g" "$FILE"
+sed -i "s/_('Vertical - Item\/Metric name in first column. Values per host in subsequent columns')/_('Vertical - Nombre de item\/métrica en la primera columna. Valores por host en columnas subsiguientes')/g" "$FILE"
+sed -i "s/_('3 Column - Item\/Metric name in first column. Host in second column. Values per item\/metrics in third column')/_('3 Columnas - Nombre de item\/métrica en la primera columna. Host en la segunda columna. Valores por item\/métricas en la tercera columna')/g" "$FILE"
+sed -i "s/_('Column Per pattern - Each item pattern specified receives its own column')/_('Columna por patrón - Cada patrón de item especificado recibe su propia columna')/g" "$FILE"
+sed -i "s/_('The tags chosen will be displayed in first column of the table.')/_('Las etiquetas elegidas se mostrarán en la primera columna de la tabla.')/g" "$FILE"
+sed -i "s/_('Alternatively, you can just group the metrics by host, which will omit the first column, ')/_('Alternativamente, puedes agrupar las métricas por host, lo que omitirá la primera columna, ')/g" "$FILE"
+sed -i "s/_('by specifying a grouping of \\\\\'\\{HOST.HOST\\}\\\\\'')/_('especificando una agrupación de {HOST.HOST}')/g" "$FILE"
+sed -i "s/_('Allows for customizing the Item grouping delimiter.')/_('Permite personalizar el delimitador de agrupación de items.')/g" "$FILE"
+sed -i "s/_('By default, the delimiter is \\\\' \/ \\\\' of nothing is specified here.')/_('Por defecto, el delimitador es \\' \/ \\' si no se especifica nada aquí.')/g" "$FILE"
+sed -i "s/_('Choose how to display the bar gauges in the table. Selecting \\\\\'Column\\\\\' will show proportions within each column, while selecting \\\\\'Row\\\\\' will show proportions within each row.')/_('Elige cómo mostrar las barras en la tabla. Seleccionar Columna mostrará proporciones dentro de cada columna, mientras que seleccionar Fila mostrará proporciones dentro de cada fila.')/g" "$FILE"
+sed -i "s/_('When hovering over a bar gauge in the table it will show what the corresponding value cell\\\\\'s proportion is as a percentage.')/_('Al pasar el mouse sobre una barra en la tabla mostrará qué proporción tiene la celda de valor correspondiente como porcentaje.')/g" "$FILE"
+sed -i "s/_('The default is to show the ratio to the max value. However, by choosing \\\\\'Sum\\\\\' you can show what the corresponding value cell\\\\\'s proportion is to the sum of all value cells, or you can show no tooltip.')/_('El valor predeterminado es mostrar la proporción al valor máximo. Sin embargo, al elegir Suma puedes mostrar qué proporción tiene la celda de valor correspondiente respecto a la suma de todas las celdas de valor, o puedes no mostrar tooltip.')/g" "$FILE"
+sed -i "s/_('NOTE: The proportion shown will use the choice from \\\\\'Bar gauge layout\\\\\' above')/_('NOTA: La proporción mostrada usará la elección de Diseño de barra de arriba')/g" "$FILE"
+sed -i "s/_('Turns off the ability to broadcast the hostid to other widgets when hosts are visible in the table')/_('Desactiva la capacidad de transmitir el ID de host a otros widgets cuando los hosts son visibles en la tabla')/g" "$FILE"
+sed -i "s/_('Checking this box will aggregate all values, by the item grouping above, across all hosts')/_('Marcar esta casilla agregará todos los valores, por la agrupación de items de arriba, en todos los hosts')/g" "$FILE"
+sed -i "s/_('NOTE: Checking this box requires a \\\\\'Column patterns aggregation\\\\\' to be set in the \\\\\'Items\\\\\' ')/_('NOTA: Marcar esta casilla requiere que se establezca una Agregación de patrones de columna en Items ')/g" "$FILE"
+sed -i "s/_('configuration popup under the \\\\\'Advanced Configuration\\\\\' section')/_('en el popup de configuración bajo la sección Configuración avanzada')/g" "$FILE"
+sed -i "s/_('OTHER NOTE: when using this \\\\\'Host ordering\\\\\' options from the Advanced configuration section below are ignored')/_('OTRA NOTA: al usar esto, las opciones de Ordenamiento de host de la sección Configuración avanzada a continuación se ignoran')/g" "$FILE"
+sed -i "s/_('Checking this box will cause only the \\\\\'Item grouping\\\\\' column to be displayed')/_('Marcar esta casilla hará que solo se muestre la columna Agrupación de items')/g" "$FILE"
+sed -i "s/_('This is useful for when you want to use this widget to act as a filter to other widgets instead of showing metrics.')/_('Esto es útil cuando quieres usar este widget para actuar como filtro de otros widgets en lugar de mostrar métricas.')/g" "$FILE"
+sed -i "s/_('NOTE: Checking this box automatically causes \\\\\'Broadcast from grouped column\\\\\' to be checked for each Item pattern specified')/_('NOTA: Marcar esta casilla automáticamente hace que se marque Difundir desde columna agrupada para cada patrón de item especificado')/g" "$FILE"
+sed -i "s/_('Checking this box will cause the first value and host cell to be automatically selected')/_('Marcar esta casilla hará que la primera celda de valor y host se seleccione automáticamente')/g" "$FILE"
+sed -i "s/_('If set, a footer row will be added at the bottom of the table')/_('Si se establece, se agregará una fila de pie en la parte inferior de la tabla')/g" "$FILE"
+sed -i "s/_('Changes the header name from the default of \\\\\'Items\\\\\' to this value when using all layouts except Horizontal')/_('Cambia el nombre del encabezado del valor predeterminado Items a este valor cuando se usan todos los diseños excepto Horizontal')/g" "$FILE"
+sed -i "s/_('Changes the header name from the default of \\\\\'Host\\\\\' to this value when using all layouts except Vertical')/_('Cambia el nombre del encabezado del valor predeterminado Host a este valor cuando se usan todos los diseños excepto Vertical')/g" "$FILE"
+sed -i "s/_('By typing a value into this box you will add a reset row to the widget with the value you entered.')/_('Al escribir un valor en esta casilla agregarás una fila de reinicio al widget con el valor que ingresaste.')/g" "$FILE"
+sed -i "s/_('A reset row is used with layouts of \\\\\'Horizontal\\\\\', \\\\\'3 Column\\\\\', and \\\\\'Column per pattern\\\\\'.')/_('Una fila de reinicio se usa con los diseños Horizontal, 3 Columnas y Columna por patrón.')/g" "$FILE"
+sed -i "s/_('After a click on the reset row value, connected widgets will reset back to their base configurations.')/_('Después de hacer clic en el valor de la fila de reinicio, los widgets conectados se reiniciarán a sus configuraciones base.')/g" "$FILE"
+sed -i "s/_('Set the row (Vertical) or column (Horizontal\/3 Column) label for the metric name')/_('Establece la etiqueta de fila (Vertical) o columna (Horizontal\/3 Columnas) para el nombre de la métrica')/g" "$FILE"
+sed -i "s/_('Supported macros:')/_('Macros soportados:')/g" "$FILE"
+sed -i "s/_('Limit applies to each \"Item pattern\" separately')/_('El límite se aplica a cada patrón de item por separado')/g" "$FILE"
+
+# ============================================
 # TRADUCCIONES - column.edit.php
 # ============================================
 echo "📝 Traduciendo column.edit.php..."
@@ -120,7 +164,7 @@ sed -i "s/_('Add')/_('Agregar')/g" "$FILE"
 sed -i "s/_('Remove')/_('Eliminar')/g" "$FILE"
 sed -i "s/_('User macros')/_('Macros de usuario')/g" "$FILE"
 
-# TEXTOS DE AYUDA (makeHelpIcon)
+# TEXTOS DE AYUDA de column.edit.php
 sed -i "s/_('Only used when \\\\\'Layout\\\\\' is set to \\\\\'Column per pattern\\\\\'')/_('Solo se usa cuando el Diseño está configurado como Columna por patrón')/g" "$FILE"
 sed -i "s/_('Checking this box means that the itemid will be broadcasted to listening widgets by clicking the cell in the column with the grouping value')/_('Marcar esta casilla significa que el ID del item se transmitirá a los widgets que escuchan al hacer clic en la celda de la columna con el valor de agrupación')/g" "$FILE"
 sed -i "s/_('This is useful for when you have multiple columns and you want to broadcast multiple metrics to be plotted simultaneously')/_('Esto es útil cuando tienes múltiples columnas y quieres transmitir múltiples métricas para graficarlas simultáneamente')/g" "$FILE"

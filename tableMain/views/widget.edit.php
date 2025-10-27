@@ -35,8 +35,8 @@ $form
 		(new CWidgetFieldRadioButtonListView($data['fields']['item_filter_type']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Choose whether you want to filter using itemids or tags from the filtering widget widget'), BR(), BR(),
-					_('Currently, only the Item navigator widget broadcasts tags, but only if the Item navigator is configured with a \'Group by\' of \'Item tag value\'')
+					_('Elige si deseas filtrar usando IDs de items o etiquetas del widget de filtrado'), BR(), BR(),
+					_('Actualmente, solo el widget Navegador de items transmite etiquetas, pero solo si el Navegador de items está configurado con \'Agrupar por\' de \'Valor de etiqueta de item\'')
 				])
 			)
 	)
@@ -44,8 +44,8 @@ $form
 		(new CWidgetFieldCheckBoxView($data['fields']['update_item_filter_only']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Checking this box means that this widget will only display metrics when there is an Item filter set'), BR(),
-					_('If the Item filter is a widget, a selection from that referred widget is the only way this widget will display metrics')
+					_('Marcar esta casilla significa que este widget solo mostrará métricas cuando haya un filtro de items establecido'), BR(),
+					_('Si el filtro de items es un widget, una selección de ese widget referido es la única forma en que este widget mostrará métricas')
 				])
 			)
 	)
@@ -61,10 +61,10 @@ $form
 		(new CWidgetFieldRadioButtonListView($data['fields']['layout']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Horizontal - Host in first column. Values per item/metrics in subsequent columns'), BR(),
-					_('Vertical - Item/Metric name in first column. Values per host in subsequent columns'), BR(),
-					_('3 Column - Item/Metric name in first column. Host in second column. Values per item/metrics in third column'), BR(),
-					_('Column Per pattern - Each item pattern specified receives its own column')
+					_('Horizontal - Host en la primera columna. Valores por item/métricas en columnas subsiguientes'), BR(),
+					_('Vertical - Nombre de item/métrica en la primera columna. Valores por host en columnas subsiguientes'), BR(),
+					_('3 Columnas - Nombre de item/métrica en la primera columna. Host en la segunda columna. Valores por item/métricas en la tercera columna'), BR(),
+					_('Columna por patrón - Cada patrón de item especificado recibe su propia columna')
 				])
 			)
 	)
@@ -72,9 +72,9 @@ $form
 		(new CWidgetFieldTableModuleItemGroupingView($data['fields']['item_group_by']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('The tags chosen will be displayed in first column of the table.'), BR(),
-					_('Alternatively, you can just group the metrics by host, which will omit the first column, '),
-					_('by specifying a grouping of \'{HOST.HOST}\'')
+					_('Las etiquetas elegidas se mostrarán en la primera columna de la tabla.'), BR(),
+					_('Alternativamente, puedes agrupar las métricas por host, lo que omitirá la primera columna, '),
+					_('especificando una agrupación de \'{HOST.HOST}\'')
 				])
 			)
 			->addRowClass('field_item_group_by')
@@ -83,8 +83,8 @@ $form
 		(new CWidgetFieldTextBoxView($data['fields']['grouping_delimiter']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Allows for customizing the Item grouping delimiter.'), BR(),
-					_('By default, the delimiter is \' / \' of nothing is specified here.')
+					_('Permite personalizar el delimitador de agrupación de items.'), BR(),
+					_('Por defecto, el delimitador es \' / \' si no se especifica nada aquí.')
 				])
 			)
 			->setWidth(ZBX_TEXTAREA_SMALL_WIDTH)
@@ -100,7 +100,7 @@ $form
 		(new CWidgetFieldRadioButtonListView($data['fields']['bar_gauge_layout']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Choose how to display the bar gauges in the table. Selecting \'Column\' will show proportions within each column, while selecting \'Row\' will show proportions within each row.')
+					_('Elige cómo mostrar las barras de medición en la tabla. Seleccionar \'Columna\' mostrará proporciones dentro de cada columna, mientras que seleccionar \'Fila\' mostrará proporciones dentro de cada fila.')
 				])
 			)
 	)
@@ -108,9 +108,9 @@ $form
 		(new CWidgetFieldRadioButtonListView($data['fields']['bar_gauge_tooltip']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('When hovering over a bar gauge in the table it will show what the corresponding value cell\'s proportion is as a percentage.'), BR(),
-					_('The default is to show the ratio to the max value. However, by choosing \'Sum\' you can show what the corresponding value cell\'s proportion is to the sum of all value cells, or you can show no tooltip.'), BR(),
-					_('NOTE: The proportion shown will use the choice from \'Bar gauge layout\' above')
+					_('Al pasar el ratón sobre una barra de medición en la tabla, se mostrará la proporción de la celda de valor correspondiente como porcentaje.'), BR(),
+					_('Por defecto, se muestra la proporción con respecto al valor máximo. Sin embargo, eligiendo \'Suma\' puedes mostrar la proporción de la celda de valor con respecto a la suma de todas las celdas de valor, o puedes no mostrar ningún tooltip.'), BR(),
+					_('NOTA: La proporción mostrada usará la elección de \'Diseño de barra\' de arriba')
 				])
 			)
 	)
@@ -118,7 +118,7 @@ $form
 		(new CWidgetFieldCheckBoxView($data['fields']['no_broadcast_hostid']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Turns off the ability to broadcast the hostid to other widgets when hosts are visible in the table')
+					_('Desactiva la capacidad de transmitir el ID de host a otros widgets cuando los hosts son visibles en la tabla')
 				])
 			)
 			->addRowClass('field_no_broadcast_hostid')
@@ -127,10 +127,10 @@ $form
 		? (new CWidgetFieldCheckBoxView($data['fields']['aggregate_all_hosts']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Checking this box will aggregate all values, by the item grouping above, across all hosts'), BR(), BR(),
-					_('NOTE: Checking this box requires a \'Column patterns aggregation\' to be set in the \'Items\' '), BR(),
-					_('configuration popup under the \'Advanced Configuration\' section'), BR(), BR(),
-					_('OTHER NOTE: when using this \'Host ordering\' options from the Advanced configuration section below are ignored')
+					_('Marcar esta casilla agregará todos los valores, por la agrupación de items de arriba, a través de todos los hosts'), BR(), BR(),
+					_('NOTA: Marcar esta casilla requiere que se establezca una \'Agregación de patrones de columna\' en \'Items\' '), BR(),
+					_('en el popup de configuración bajo la sección \'Configuración avanzada\''), BR(), BR(),
+					_('OTRA NOTA: al usar esto, las opciones de \'Ordenación de hosts\' de la sección de Configuración avanzada de abajo se ignoran')
 				])
 			)
 			->addRowClass('field_aggregate_all_hosts')
@@ -140,9 +140,9 @@ $form
 		(new CWidgetFieldCheckBoxView($data['fields']['show_grouping_only']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Checking this box will cause only the \'Item grouping\' column to be displayed'), BR(),
-					_('This is useful for when you want to use this widget to act as a filter to other widgets instead of showing metrics.'), BR(),
-					_('NOTE: Checking this box automatically causes \'Broadcast from grouped column\' to be checked for each Item pattern specified')
+					_('Marcar esta casilla hará que solo se muestre la columna \'Agrupación de items\''), BR(),
+					_('Esto es útil cuando quieres usar este widget como filtro para otros widgets en lugar de mostrar métricas.'), BR(),
+					_('NOTA: Marcar esta casilla automáticamente marca \'Transmitir desde columna agrupada\' para cada patrón de item especificado')
 				])
 			)
 			->addRowClass('field_show_grouping_only')
@@ -151,7 +151,7 @@ $form
 		(new CWidgetFieldCheckBoxView($data['fields']['autoselect_first']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Checking this box will cause the first value and host cell to be automatically selected')
+					_('Marcar esta casilla hará que la primera celda de valor y host se seleccione automáticamente')
 				])
 			)
 	)
@@ -159,7 +159,7 @@ $form
 		(new CWidgetFieldRadioButtonListView($data['fields']['footer']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('If set, a footer row will be added at the bottom of the table')
+					_('Si se establece, se agregará una fila de pie al final de la tabla')
 				])
 			)
 	)
@@ -167,7 +167,7 @@ $form
 		(new CWidgetFieldTextBoxView($data['fields']['item_header']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Changes the header name from the default of \'Items\' to this value when using all layouts except Horizontal')
+					_('Cambia el nombre del encabezado del valor por defecto \'Items\' a este valor cuando se usan todos los diseños excepto Horizontal')
 				])
 			)
 	)
@@ -175,7 +175,7 @@ $form
 		(new CWidgetFieldTextBoxView($data['fields']['host_header']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Changes the header name from the default of \'Host\' to this value when using all layouts except Vertical')
+					_('Cambia el nombre del encabezado del valor por defecto \'Host\' a este valor cuando se usan todos los diseños excepto Vertical')
 				])
 			)
 	)
@@ -183,9 +183,9 @@ $form
 		(new CWidgetFieldTextBoxView($data['fields']['reset_row']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('By typing a value into this box you will add a reset row to the widget with the value you entered.'), BR(),
-					_('A reset row is used with layouts of \'Horizontal\', \'3 Column\', and \'Column per pattern\'.'), BR(),
-					_('After a click on the reset row value, connected widgets will reset back to their base configurations.')
+					_('Al escribir un valor en esta casilla, agregarás una fila de reinicio al widget con el valor que ingresaste.'), BR(),
+					_('Una fila de reinicio se usa con los diseños \'Horizontal\', \'3 Columnas\' y \'Columna por patrón\'.'), BR(),
+					_('Después de hacer clic en el valor de la fila de reinicio, los widgets conectados se reiniciarán a sus configuraciones base.')
 				])
 			)
 	)
@@ -193,21 +193,21 @@ $form
 		(new CWidgetFieldTextAreaView($data['fields']['item_name_strip']))
 			->setFieldHint(
 				makeHelpIcon([
-					_('Set the row (Vertical) or column (Horizontal/3 Column) label for the metric name'), BR(),
-					_('Supported macros:'),
+					_('Establece la etiqueta de fila (Vertical) o columna (Horizontal/3 Columnas) para el nombre de la métrica'), BR(),
+					_('Macros soportadas:'),
 					(new CList([
 						'{HOST.*}',
 						'{ITEM.*}',
 						'{INVENTORY.*}',
-						_('User macros'),
+						_('Macros de usuario'),
 					]))->addClass(ZBX_STYLE_LIST_DASHED)
 				])
 			)
 	)
 	->addFieldset(
-		(new CWidgetFormFieldsetCollapsibleView(_('Advanced configuration')))
+		(new CWidgetFormFieldsetCollapsibleView(_('Configuración avanzada')))
 			->addFieldsGroup(
-				(new CWidgetFieldsGroupView(_('Host ordering')))
+				(new CWidgetFieldsGroupView(_('Ordenación de hosts')))
 					->addField(
 						new CWidgetFieldRadioButtonListView($data['fields']['host_ordering_order_by'])
 					)
@@ -225,7 +225,7 @@ $form
 					->addRowClass('fields-group-host-ordering')
 			)
 			->addFieldsGroup(
-				(new CWidgetFieldsGroupView(_('Item ordering')))
+				(new CWidgetFieldsGroupView(_('Ordenación de items')))
 					->addField(
 						new CWidgetFieldRadioButtonListView($data['fields']['item_ordering_order_by'])
 					)
@@ -239,7 +239,7 @@ $form
 					)
 					->addField(
 						(new CWidgetFieldIntegerBoxView($data['fields']['item_ordering_limit']))
-							->setFieldHint(makeHelpIcon(_('Limit applies to each "Item pattern" separately')))
+							->setFieldHint(makeHelpIcon(_('El límite se aplica a cada "Patrón de item" por separado')))
 					)
 					->addRowClass('fields-group-item-ordering')
 			)

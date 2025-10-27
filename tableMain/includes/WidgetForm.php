@@ -69,30 +69,30 @@ class WidgetForm extends CWidgetForm {
 		return $this
 			->addField($this->isTemplateDashboard()
 				? null
-				: new CWidgetFieldMultiSelectGroup('groupids', _('Host groups'))
+				: new CWidgetFieldMultiSelectGroup('groupids', _('Grupos de hosts'))
 			)
 			->addField($this->isTemplateDashboard()
 				? null
 				: new CWidgetFieldMultiSelectHost('hostids', _('Hosts'))
 			)
 			->addField(
-				(new CWidgetFieldMultiSelectItem('itemid', _('Item filter')))
+				(new CWidgetFieldMultiSelectItem('itemid', _('Filtro de items')))
 					->setMultiple(true)
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('item_filter_type', _('Item filter type'), [
-					self::ITEM_FILTER_ITEMIDS => _('Itemids'),
-					self::ITEM_FILTER_TAGS => _('Tags')
+				(new CWidgetFieldRadioButtonList('item_filter_type', _('Tipo de filtro de items'), [
+					self::ITEM_FILTER_ITEMIDS => _('IDs de items'),
+					self::ITEM_FILTER_TAGS => _('Etiquetas')
 				]))->setDefault(self::ITEM_FILTER_ITEMIDS)
 			)
 			->addField(
-				new CWidgetFieldCheckBox('update_item_filter_only', _('Item filter update only'))
+				new CWidgetFieldCheckBox('update_item_filter_only', _('Actualizar solo filtro de items'))
 			)
 			->addField($this->isTemplateDashboard()
 				? null
-				: (new CWidgetFieldRadioButtonList('host_tags_evaltype', _('Host tags'), [
-					TAG_EVAL_TYPE_AND_OR => _('And/Or'),
-					TAG_EVAL_TYPE_OR => _('Or')
+				: (new CWidgetFieldRadioButtonList('host_tags_evaltype', _('Etiquetas de host'), [
+					TAG_EVAL_TYPE_AND_OR => _('Y/O'),
+					TAG_EVAL_TYPE_OR => _('O')
 				]))->setDefault(TAG_EVAL_TYPE_AND_OR)
 			)
 			->addField($this->isTemplateDashboard()
@@ -100,31 +100,31 @@ class WidgetForm extends CWidgetForm {
 				: new CWidgetFieldTags('host_tags')
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('problems', _('Show problems'), [
-					self::PROBLEMS_ALL => _('All'),
-					self::PROBLEMS_UNSUPPRESSED => _('Unsuppressed'),
-					self::PROBLEMS_NONE => _('None')
+				(new CWidgetFieldRadioButtonList('problems', _('Mostrar problemas'), [
+					self::PROBLEMS_ALL => _('Todos'),
+					self::PROBLEMS_UNSUPPRESSED => _('No suprimidos'),
+					self::PROBLEMS_NONE => _('Ninguno')
 				]))->setDefault(self::PROBLEMS_UNSUPPRESSED)
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('layout', _('Layout'), [
+				(new CWidgetFieldRadioButtonList('layout', _('Diseño'), [
 					self::LAYOUT_HORIZONTAL => _('Horizontal'),
 					self::LAYOUT_VERTICAL => _('Vertical'),
-					self::LAYOUT_THREE_COL => _('3 Column'),
-					self::LAYOUT_COLUMN_PER => _('Column per pattern')
+					self::LAYOUT_THREE_COL => _('3 Columnas'),
+					self::LAYOUT_COLUMN_PER => _('Columna por patrón')
 				]))->setDefault(self::LAYOUT_HORIZONTAL)
 			)
 			->addField(
-				new CWidgetFieldTableModuleItemGrouping('item_group_by', _('Item grouping'))
+				new CWidgetFieldTableModuleItemGrouping('item_group_by', _('Agrupación de items'))
 			)
 			->addField(
-				(new CWidgetFieldTextBox('grouping_delimiter', _('Grouping delimiter')))
+				(new CWidgetFieldTextBox('grouping_delimiter', _('Delimitador de agrupación')))
 					->setValue(self::DEFAULT_DELIMITER)
 					->setFlags(CWidgetField::FLAG_NOT_EMPTY)
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('show_column_header', _('Show column header'), [
-					self::COLUMN_HEADER_OFF => _('Off'),
+				(new CWidgetFieldRadioButtonList('show_column_header', _('Mostrar encabezado de columna'), [
+					self::COLUMN_HEADER_OFF => _('Desactivado'),
 					self::COLUMN_HEADER_HORIZONTAL => _('Horizontal'),
 					self::COLUMN_HEADER_VERTICAL => _('Vertical')
 				]))->setDefault(self::COLUMN_HEADER_VERTICAL)
@@ -134,84 +134,84 @@ class WidgetForm extends CWidgetForm {
 					->setFlags(CWidgetField::FLAG_NOT_EMPTY | CWidgetField::FLAG_LABEL_ASTERISK)
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('bar_gauge_layout', _('Bar gauge layout'), [
-					self::BAR_GAUGE_LAYOUT_COLUMN => _('Column'),
-					self::BAR_GAUGE_LAYOUT_ROW => _('Row')
+				(new CWidgetFieldRadioButtonList('bar_gauge_layout', _('Diseño de barra'), [
+					self::BAR_GAUGE_LAYOUT_COLUMN => _('Columna'),
+					self::BAR_GAUGE_LAYOUT_ROW => _('Fila')
 				]))->setDefault(self::BAR_GAUGE_LAYOUT_COLUMN)
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('bar_gauge_tooltip', _('Bar gauge tooltip'), [
-					self::BAR_GAUGE_TOOLTIP_MAX => _('Max'),
-					self::BAR_GAUGE_TOOLTIP_SUM => _('Sum'),
-					self::BAR_GAUGE_TOOLTIP_NONE => _('None')
+				(new CWidgetFieldRadioButtonList('bar_gauge_tooltip', _('Tooltip de barra'), [
+					self::BAR_GAUGE_TOOLTIP_MAX => _('Máximo'),
+					self::BAR_GAUGE_TOOLTIP_SUM => _('Suma'),
+					self::BAR_GAUGE_TOOLTIP_NONE => _('Ninguno')
 				]))->setDefault(self::BAR_GAUGE_TOOLTIP_MAX)
 			)
 			->addField(
-				new CWidgetFieldCheckBox('no_broadcast_hostid', _('Disallow host broadcasting'))
+				new CWidgetFieldCheckBox('no_broadcast_hostid', _('Deshabilitar difusión de host'))
 			)
 			->addField($this->isTemplateDashboard()
 				? null
-				: new CWidgetFieldCheckBox('aggregate_all_hosts', _('Aggregate all hosts'))
+				: new CWidgetFieldCheckBox('aggregate_all_hosts', _('Agregar todos los hosts'))
 			)
 			->addField(
-				new CWidgetFieldCheckBox('show_grouping_only', _('Show item grouping only'))
+				new CWidgetFieldCheckBox('show_grouping_only', _('Mostrar solo agrupación de items'))
 			)
 			->addField(
-				new CWidgetFieldCheckBox('autoselect_first', _('Autoselect first cell'))
+				new CWidgetFieldCheckBox('autoselect_first', _('Seleccionar automáticamente primera celda'))
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('footer', _('Show footer row'), [
-					self::FOOTER_NONE => _('No footer'),
-					self::FOOTER_SUM => _('Sum'),
-					self::FOOTER_AVERAGE => _('Average')
+				(new CWidgetFieldRadioButtonList('footer', _('Mostrar fila de pie'), [
+					self::FOOTER_NONE => _('Sin pie'),
+					self::FOOTER_SUM => _('Suma'),
+					self::FOOTER_AVERAGE => _('Promedio')
 				]))->setDefault(self::FOOTER_NONE)
 			)
 			->addField(
-				new CWidgetFieldTextBox('item_header', _('Item header name'))
+				new CWidgetFieldTextBox('item_header', _('Nombre de encabezado de item'))
 			)
 			->addField(
-				new CWidgetFieldTextBox('host_header', _('Host header name'))
+				new CWidgetFieldTextBox('host_header', _('Nombre de encabezado de host'))
 			)
 			->addField(
-				new CWidgetFieldTextBox('reset_row', _('Add reset row'))
+				new CWidgetFieldTextBox('reset_row', _('Agregar fila de reinicio'))
 			)
 			->addField(
-				new CWidgetFieldTextArea('item_name_strip', _('Metric label'))
+				new CWidgetFieldTextArea('item_name_strip', _('Etiqueta de métrica'))
 			)
 
 			// Advanced configuration fields - host ordering.
 			->addField(
-				(new CWidgetFieldRadioButtonList('host_ordering_order_by', _('Order by'), [
-					self::ORDERBY_HOST_NAME => _('Host name'),
-					self::ORDERBY_ITEM_VALUE => _('Item value')
+				(new CWidgetFieldRadioButtonList('host_ordering_order_by', _('Ordenar por'), [
+					self::ORDERBY_HOST_NAME => _('Nombre de host'),
+					self::ORDERBY_ITEM_VALUE => _('Valor de item')
 				]))
 					->setDefault(self::ORDERBY_HOST_NAME)
 					->setFlags(CWidgetField::FLAG_NOT_EMPTY | CWidgetField::FLAG_LABEL_ASTERISK)
 			)
 			->addField(
 				(new CWidgetFieldPatternSelectItem('host_ordering_item', _('Item')))
-					->prefixLabel(_('Host ordering'))
+					->prefixLabel(_('Ordenación de hosts'))
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('host_ordering_order', _('Order'), [
+				(new CWidgetFieldRadioButtonList('host_ordering_order', _('Orden'), [
 					self::ORDER_TOP_N => _('Top N'),
 					self::ORDER_BOTTOM_N => _('Bottom N')
 				]))->setDefault(self::ORDER_TOP_N)
 			)
 			->addField(
-				(new CWidgetFieldIntegerBox('host_ordering_limit', _('Limit'), ZBX_MIN_WIDGET_LINES,
+				(new CWidgetFieldIntegerBox('host_ordering_limit', _('Límite'), ZBX_MIN_WIDGET_LINES,
 					ZBX_MAX_WIDGET_LINES
 				))
-					->prefixLabel(_('Host ordering'))
+					->prefixLabel(_('Ordenación de hosts'))
 					->setDefault(10)
 					->setFlags(CWidgetField::FLAG_NOT_EMPTY | CWidgetField::FLAG_LABEL_ASTERISK)
 			)
 
 			// Advanced configuration fields - item ordering.
 			->addField(
-				(new CWidgetFieldRadioButtonList('item_ordering_order_by', _('Order by'), [
-					self::ORDERBY_ITEM_VALUE => _('Item value'),
-					self::ORDERBY_ITEM_NAME => _('Item name'),
+				(new CWidgetFieldRadioButtonList('item_ordering_order_by', _('Ordenar por'), [
+					self::ORDERBY_ITEM_VALUE => _('Valor de item'),
+					self::ORDERBY_ITEM_NAME => _('Nombre de item'),
 					self::ORDERBY_HOST => _('Host')
 				]))
 					->setDefault(self::ORDERBY_ITEM_VALUE)
@@ -219,19 +219,19 @@ class WidgetForm extends CWidgetForm {
 			)
 			->addField(
 				(new CWidgetFieldPatternSelectHost('item_ordering_host', _('Host')))
-					->prefixLabel(_('Item ordering'))
+					->prefixLabel(_('Ordenación de items'))
 			)
 			->addField(
-				(new CWidgetFieldRadioButtonList('item_ordering_order', _('Order'), [
+				(new CWidgetFieldRadioButtonList('item_ordering_order', _('Orden'), [
 					self::ORDER_TOP_N => _('Top N'),
 					self::ORDER_BOTTOM_N => _('Bottom N')
 				]))->setDefault(self::ORDER_TOP_N)
 			)
 			->addField(
-				(new CWidgetFieldIntegerBox('item_ordering_limit', _('Limit'), ZBX_MIN_WIDGET_LINES,
+				(new CWidgetFieldIntegerBox('item_ordering_limit', _('Límite'), ZBX_MIN_WIDGET_LINES,
 					ZBX_MAX_WIDGET_LINES
 				))
-					->prefixLabel(_('Item ordering'))
+					->prefixLabel(_('Ordenación de items'))
 					->setDefault(10)
 					->setFlags(CWidgetField::FLAG_NOT_EMPTY | CWidgetField::FLAG_LABEL_ASTERISK)
 			)
@@ -254,7 +254,7 @@ class WidgetForm extends CWidgetForm {
 				$this->getField('aggregate_all_hosts')->getValue() == 1 &&
 				count($item_groupings) == 1 &&
 				$item_groupings[0]['tag_name'] === '{HOST.HOST}') {
-			$errors[] = _s('Cannot group by {HOST.HOST} and aggregate by all hosts');
+			$errors[] = _s('No se puede agrupar por {HOST.HOST} y agregar por todos los hosts');
 			return $errors;
 		}
 
@@ -274,8 +274,8 @@ class WidgetForm extends CWidgetForm {
 				foreach ($columns as $column) {
 					if ($column['column_agg_method'] === AGGREGATE_NONE) {
 						$key = $column['items'][0];
-						$errors[] = _s('Form validation failure: When using \'Aggregate all hosts\' a \'Column patterns aggregation\' choice is required in the \'Items\' form');
-						$errors[] = _s('Column with failure: "%1$s"', $key);
+						$errors[] = _s('Error de validación: Al usar \'Agregar todos los hosts\' se requiere una opción de \'Agregación de patrones de columna\' en el formulario de \'Items\'');
+						$errors[] = _s('Columna con error: "%1$s"', $key);
 						return $errors;
 					}
 				}

@@ -28,8 +28,8 @@ if (array_key_exists('edit', $data)) {
 // Set column title
 $form_grid->addItem([
 	(new CLabel([
-		_('Column title'),
-		makeHelpIcon(_('Only used when \'Layout\' is set to \'Column per pattern\''))
+		_('Título de columna'),
+		makeHelpIcon(_('Solo se usa cuando \'Diseño\' está configurado como \'Columna por patrón\''))
 	]))->addClass('js-column-title'),
 	(new CFormField(
 		(new CTextBox('column_title', $data['column_title'], false))
@@ -40,10 +40,10 @@ $form_grid->addItem([
 // Set if you want to broadcast the itemids in the grouped column cell
 $form_grid->addItem([
 	(new CLabel([
-		_('Broadcast from grouped column'),
+		_('Transmitir desde columna agrupada'),
 		makeHelpIcon([
-			_('Checking this box means that the itemid will be broadcasted to listening widgets by clicking the cell in the column with the grouping value'), BR(),
-			_('This is useful for when you have multiple columns and you want to broadcast multiple metrics to be plotted simultaneously')
+			_('Marcar esta casilla significa que el ID de item se transmitirá a los widgets que escuchan al hacer clic en la celda de la columna con el valor de agrupación'), BR(),
+			_('Esto es útil cuando tienes múltiples columnas y quieres transmitir múltiples métricas para graficarlas simultáneamente')
 		])
 	]))->addClass('js-broadcast-in-group-cell'),
 	(new CFormField(
@@ -56,10 +56,10 @@ $item_items_field_view = (new CWidgetFieldPatternSelectItemView($data['item_item
 	->setFormName('tablemodulerme_column');
 
 $key_tip = makeHelpIcon([
-	_('If you know the item key pattern, you can specify it instead of the item name pattern by typing: "key=<ITEM_KEY>" for each pattern you want.'), BR(), BR(),
-	_('Wildcards are still supported for item key patterns.'), BR(),
-	_('The reason for item key pattern usage here is it is faster due to indexing.'), BR(), BR(),
-	_('In order to find the key you need, to go the Latest data page, search for your item patterns and then check the "Show details" box. The key for each item will display below the item name in the "Name" column')
+	_('Si conoces el patrón de clave de item, puedes especificarlo en lugar del patrón de nombre de item escribiendo: "key=<CLAVE_ITEM>" para cada patrón que desees.'), BR(), BR(),
+	_('Los comodines aún son soportados para patrones de clave de item.'), BR(),
+	_('La razón para usar patrones de clave de item aquí es que es más rápido debido a la indexación.'), BR(), BR(),
+	_('Para encontrar la clave que necesitas, ve a la página de Últimos datos, busca tus patrones de item y luego marca la casilla "Mostrar detalles". La clave de cada item se mostrará debajo del nombre del item en la columna "Nombre"')
 ]);
 
 foreach ($item_items_field_view->getViewCollection() as ['label' => $label, 'view' => $view, 'class' => $class]) {
@@ -78,11 +78,11 @@ $form_grid
 
 // Item tags.
 $form_grid->addItem([
-	new CLabel(_('Item tags')),
+	new CLabel(_('Etiquetas de item')),
 	new CFormField(
 		(new CRadioButtonList('item_tags_evaltype', (int) $data['item_tags_evaltype']))
-			->addValue(_('And/Or'), TAG_EVAL_TYPE_AND_OR)
-			->addValue(_('Or'), TAG_EVAL_TYPE_OR)
+			->addValue(_('Y/O'), TAG_EVAL_TYPE_AND_OR)
+			->addValue(_('O'), TAG_EVAL_TYPE_OR)
 			->setModern()
 	)
 ]);
@@ -103,7 +103,7 @@ $form_grid
 
 // Base color.
 $form_grid->addItem([
-	new CLabel(_('Base color'), 'lbl_base_color'),
+	new CLabel(_('Color base'), 'lbl_base_color'),
 	new CFormField(
 		new CColor('base_color', $data['base_color'])
 	)
@@ -111,7 +111,7 @@ $form_grid->addItem([
 
 // Font color.
 $form_grid->addItem([
-	new CLabel(_('Font color'), 'lbl_font_color'),
+	new CLabel(_('Color de fuente'), 'lbl_font_color'),
 	new CFormField(
 		new CColor('font_color', $data['font_color'])
 	)
@@ -119,11 +119,11 @@ $form_grid->addItem([
 
 // Display value as.
 $form_grid->addItem([
-	new CLabel(_('Display value as'), 'display_value_as'),
+	new CLabel(_('Mostrar valor como'), 'display_value_as'),
 	new CFormField(
 		(new CRadioButtonList('display_value_as', (int) $data['display_value_as']))
-			->addValue(_('Numeric'), CWidgetFieldColumnsList::DISPLAY_VALUE_AS_NUMERIC)
-			->addValue(_('Text'), CWidgetFieldColumnsList::DISPLAY_VALUE_AS_TEXT)
+			->addValue(_('Numérico'), CWidgetFieldColumnsList::DISPLAY_VALUE_AS_NUMERIC)
+			->addValue(_('Texto'), CWidgetFieldColumnsList::DISPLAY_VALUE_AS_TEXT)
 			->addValue(_('URL'), CWidgetFieldColumnsList::DISPLAY_VALUE_AS_URL)
 			->setModern()
 	)
@@ -131,12 +131,12 @@ $form_grid->addItem([
 
 // Display.
 $form_grid->addItem([
-	(new CLabel(_('Display'), 'display'))->addClass('js-display-row'),
+	(new CLabel(_('Visualización'), 'display'))->addClass('js-display-row'),
 	(new CFormField(
 		(new CRadioButtonList('display', (int) $data['display']))
-			->addValue(_('As is'), CWidgetFieldColumnsList::DISPLAY_AS_IS)
-			->addValue(_('Bar'), CWidgetFieldColumnsList::DISPLAY_BAR)
-			->addValue(_('Indicators'), CWidgetFieldColumnsList::DISPLAY_INDICATORS)
+			->addValue(_('Como es'), CWidgetFieldColumnsList::DISPLAY_AS_IS)
+			->addValue(_('Barra'), CWidgetFieldColumnsList::DISPLAY_BAR)
+			->addValue(_('Indicadores'), CWidgetFieldColumnsList::DISPLAY_INDICATORS)
 			// Sparkline option removed for Zabbix 7.0 compatibility (only available in 7.2+)
 			// ->addValue(_('Sparkline'), CWidgetFieldColumnsList::DISPLAY_SPARKLINE)
 			->setModern()
@@ -159,21 +159,21 @@ $form_grid->addItem([
 
 // Min.
 $form_grid->addItem([
-	(new CLabel(_('Min'), 'min'))->addClass('js-min-max-row'),
+	(new CLabel(_('Mín'), 'min'))->addClass('js-min-max-row'),
 	(new CFormField(
 		(new CTextBox('min', $data['min']))
 			->setWidth(ZBX_TEXTAREA_FILTER_SMALL_WIDTH)
-			->setAttribute('placeholder', _('calculated'))
+			->setAttribute('placeholder', _('calculado'))
 	))->addClass('js-min-max-row')
 ]);
 
 // Max.
 $form_grid->addItem([
-	(new CLabel(_('Max'), 'max'))->addClass('js-min-max-row'),
+	(new CLabel(_('Máx'), 'max'))->addClass('js-min-max-row'),
 	(new CFormField(
 		(new CTextBox('max', $data['max']))
 			->setWidth(ZBX_TEXTAREA_FILTER_SMALL_WIDTH)
-			->setAttribute('placeholder', _('calculated'))
+			->setAttribute('placeholder', _('calculado'))
 	))->addClass('js-min-max-row')
 ]);
 
@@ -182,10 +182,10 @@ $thresholds = (new CDiv([
 	(new CTable())
 		->setId('thresholds_table')
 		->addClass(ZBX_STYLE_TABLE_FORMS)
-		->setHeader(['', _('Threshold'), (new CColHeader(''))->setWidth('100%')])
+		->setHeader(['', _('Umbral'), (new CColHeader(''))->setWidth('100%')])
 		->setFooter(new CRow(
 			(new CCol(
-				(new CButtonLink(_('Add')))->addClass('element-table-add')
+				(new CButtonLink(_('Agregar')))->addClass('element-table-add')
 			))->setColSpan(3)
 		)),
 	(new CTemplateTag('thresholds-row-tmpl'))
@@ -194,7 +194,7 @@ $thresholds = (new CDiv([
 			(new CTextBox('thresholds[#{rowNum}][threshold]', '#{threshold}', false))
 				->setWidth(ZBX_TEXTAREA_TINY_WIDTH)
 				->setAriaRequired(),
-			(new CButton('thresholds[#{rowNum}][remove]', _('Remove')))
+			(new CButton('thresholds[#{rowNum}][remove]', _('Eliminar')))
 				->addClass(ZBX_STYLE_BTN_LINK)
 				->addClass('element-table-remove')
 		]))->addClass('form_row'))
@@ -203,13 +203,13 @@ $thresholds = (new CDiv([
 	->setWidth(ZBX_TEXTAREA_STANDARD_WIDTH);
 
 $form_grid->addItem([
-	(new CLabel(_('Thresholds'), 'thresholds_table'))->addClass('js-thresholds-row'),
+	(new CLabel(_('Umbrales'), 'thresholds_table'))->addClass('js-thresholds-row'),
 	(new CFormField($thresholds))->addClass('js-thresholds-row')
 ]);
 
 // Decimal places.
 $form_grid->addItem([
-	(new CLabel(_('Decimal places'), 'decimal_places'))->addClass('js-decimals-row'),
+	(new CLabel(_('Lugares decimales'), 'decimal_places'))->addClass('js-decimals-row'),
 	(new CFormField(
 		(new CNumericBox('decimal_places', $data['decimal_places'], 2))->setWidth(ZBX_TEXTAREA_NUMERIC_STANDARD_WIDTH)
 	))->addClass('js-decimals-row')
@@ -220,10 +220,10 @@ $highlights = (new CDiv([
 	(new CTable())
 		->setId('highlights_table')
 		->addClass(ZBX_STYLE_TABLE_FORMS)
-		->setHeader(['', _('Regular expression'), (new CColHeader(''))->setWidth('100%')])
+		->setHeader(['', _('Expresión regular'), (new CColHeader(''))->setWidth('100%')])
 		->setFooter(new CRow(
 			(new CCol(
-				(new CButtonLink(_('Add')))->addClass('element-table-add')
+				(new CButtonLink(_('Agregar')))->addClass('element-table-add')
 			))->setColSpan(3)
 		)),
 	(new CTemplateTag('highlights-row-tmpl'))
@@ -232,7 +232,7 @@ $highlights = (new CDiv([
 			(new CTextBox('highlights[#{rowNum}][pattern]', '#{pattern}', false))
 				->setWidth(ZBX_TEXTAREA_MEDIUM_WIDTH)
 				->setAriaRequired(),
-			(new CButton('highlights[#{rowNum}][remove]', _('Remove')))
+			(new CButton('highlights[#{rowNum}][remove]', _('Eliminar')))
 				->addClass(ZBX_STYLE_BTN_LINK)
 				->addClass('element-table-remove')
 		]))->addClass('form_row'))
@@ -241,69 +241,69 @@ $highlights = (new CDiv([
 	->setWidth(ZBX_TEXTAREA_STANDARD_WIDTH);
 
 $form_grid->addItem([
-	(new CLabel(_('Highlights'), 'highlights_table'))->addClass('js-highlights-row'),
+	(new CLabel(_('Resaltados'), 'highlights_table'))->addClass('js-highlights-row'),
 	(new CFormField($highlights))->addClass('js-highlights-row')
 ]);
 
 $form_grid->addItem([
-	(new CLabel(_('URL display mode'), 'url_display_mode'))->addClass('js-url-display-mode'),
+	(new CLabel(_('Modo de visualización de URL'), 'url_display_mode'))->addClass('js-url-display-mode'),
 	(new CFormField(
 		(new CRadioButtonList('url_display_mode', (int) $data['url_display_mode']))
-			->addValue(_('As is'), CWidgetFieldColumnsList::URL_DISPLAY_AS_IS)
-			->addValue(_('Custom'), CWidgetFieldColumnsList::URL_DISPLAY_CUSTOM)
+			->addValue(_('Como es'), CWidgetFieldColumnsList::URL_DISPLAY_AS_IS)
+			->addValue(_('Personalizado'), CWidgetFieldColumnsList::URL_DISPLAY_CUSTOM)
 			->setModern()
 	))->addClass('js-url-display-mode')
 ]);
 
 $form_grid->addItem([
 	(new CLabel([
-		_('URL display override'),
+		_('Sobrescribir visualización de URL'),
 		makeHelpIcon([
-			_('Customize the display text of the URL'), BR(), BR(),
-			_('Instead of displaying the raw URL you can set arbitrary text to display instead. The URL will be encoded into the text you enter in this text box.'), BR(), BR(),
-			_('You can also mix macros with text. Supported macros:'),
+			_('Personaliza el texto de visualización de la URL'), BR(), BR(),
+			_('En lugar de mostrar la URL sin formato, puedes establecer un texto arbitrario para mostrar. La URL se codificará en el texto que ingreses en este cuadro de texto.'), BR(), BR(),
+			_('También puedes mezclar macros con texto. Macros soportadas:'),
 			(new CList([
 				'{HOST.*}',
 				'{ITEM.*}',
 				'{INVENTORY.*}',
-				_('User macros'),
+				_('Macros de usuario'),
 			]))->addClass(ZBX_STYLE_LIST_DASHED)
 		])
 	]))->addClass('js-url-display-override'),
 	(new CFormField(
 		(new CTextBox('url_display_override', $data['url_display_override'], false))
 			->setWidth(ZBX_TEXTAREA_STANDARD_WIDTH)
-			->setAttribute('placeholder', _('Set custom display text'))
+			->setAttribute('placeholder', _('Establecer texto de visualización personalizado'))
 	))->addClass('js-url-display-override')
 ]);
 
 $form_grid->addItem([
 	(new CLabel([
-		_('URL customization'),
+		_('Personalización de URL'),
 		makeHelpIcon([
-			_('Customize the entire URL'), BR(), BR(),
-			_('Instead of displaying the metric value as a URL, you can leverage the hosts and items from the returned results to create a fully customized URL. You can also just simply enter any valid URL (i.e. https://www.zabbix.com)'), BR(), BR(),
-			_('You can also mix macros with text. Supported macros:'),
+			_('Personaliza la URL completa'), BR(), BR(),
+			_('En lugar de mostrar el valor de métrica como una URL, puedes aprovechar los hosts e items de los resultados devueltos para crear una URL completamente personalizada. También puedes simplemente ingresar cualquier URL válida (p.ej. https://www.zabbix.com)'), BR(), BR(),
+			_('También puedes mezclar macros con texto. Macros soportadas:'),
 			(new CList([
 				'{HOST.*}',
 				'{ITEM.*}',
 				'{INVENTORY.*}',
-				_('User macros'),
+				_('Macros de usuario'),
 			]))->addClass(ZBX_STYLE_LIST_DASHED)
 		])
 	]))->addClass('js-url-custom-override'),
 	(new CFormField(
 		(new CTextBox('url_custom_override', $data['url_custom_override'], false))
 			->setWidth(ZBX_TEXTAREA_STANDARD_WIDTH)
-			->setAttribute('placeholder', _('Create a fully custom URL'))
+			->setAttribute('placeholder', _('Crear una URL completamente personalizada'))
 	))->addClass('js-url-custom-override')
 ]);
 
 $form_grid->addItem([
 	(new CLabel([
-		_('Open URL in new tab'),
+		_('Abrir URL en nueva pestaña'),
 		makeHelpIcon([
-			_('Check this box to open the URL in a new browser tab, otherwise the link will open in the same tab')
+			_('Marca esta casilla para abrir la URL en una nueva pestaña del navegador, de lo contrario el enlace se abrirá en la misma pestaña')
 		])
 	]))->addClass('js-url-open-in'),
 	(new CFormField(
@@ -312,14 +312,14 @@ $form_grid->addItem([
 ]);
 
 // Advanced configuration.
-$advanced_configuration = new CWidgetFormFieldsetCollapsibleView(_('Advanced configuration'));
+$advanced_configuration = new CWidgetFormFieldsetCollapsibleView(_('Configuración avanzada'));
 
 // Column aggregation function.
 $advanced_configuration->addItem([
 	(new CLabel([
-		_('Column patterns aggregation'),
+		_('Agregación de patrones de columna'),
 		makeHelpIcon([
-			_('Choose a function to aggregate all item patterns for this column for each host.')
+			_('Elige una función para agregar todos los patrones de item de esta columna para cada host.')
 		])
 	]))->addClass('js-column-agg-row'),
 	(new CFormField(
@@ -340,7 +340,7 @@ $advanced_configuration->addItem([
 
 // Aggregation function.
 $advanced_configuration->addItem([
-	new CLabel(_('Aggregation function'), 'column_aggregate_function'),
+	new CLabel(_('Función de agregación'), 'column_aggregate_function'),
 	new CFormField(
 		(new CSelect('aggregate_function'))
 			->setId('aggregate_function')
@@ -382,12 +382,12 @@ $advanced_configuration->addItem(new CScriptTag([
 // History data.
 $advanced_configuration
 	->addItem([
-		(new CLabel(_('History data'), 'history'))->addClass('js-history-row'),
+		(new CLabel(_('Datos de historial'), 'history'))->addClass('js-history-row'),
 		(new CFormField(
 			(new CRadioButtonList('history', (int) $data['history']))
 				->addValue(_('Auto'), CWidgetFieldColumnsList::HISTORY_DATA_AUTO)
-				->addValue(_('History'), CWidgetFieldColumnsList::HISTORY_DATA_HISTORY)
-				->addValue(_('Trends'), CWidgetFieldColumnsList::HISTORY_DATA_TRENDS)
+				->addValue(_('Historial'), CWidgetFieldColumnsList::HISTORY_DATA_HISTORY)
+				->addValue(_('Tendencias'), CWidgetFieldColumnsList::HISTORY_DATA_TRENDS)
 				->setModern()
 		))->addClass('js-history-row')
 	]);
@@ -395,13 +395,13 @@ $advanced_configuration
 // Footer Override
 $advanced_configuration
 	->addItem([
-		(new CLabel(_('Override footer'), 'override_footer'))->addClass('js-override-footer'),
+		(new CLabel(_('Sobrescribir pie'), 'override_footer'))->addClass('js-override-footer'),
 		(new CFormField(
 			(new CRadioButtonList('override_footer', (int) $data['override_footer']))
-				->addValue(_('No override'), CWidgetFieldColumnsList::FOOTER_DONT_OVERRIDE)
-				->addValue(_('None'), CWidgetFieldColumnsList::FOOTER_SHOW_NONE)
-				->addValue(_('Sum'), CWidgetFieldColumnsList::FOOTER_SHOW_SUM)
-				->addValue(_('Average'), CWidgetFieldColumnsList::FOOTER_SHOW_AVERAGE)
+				->addValue(_('Sin sobrescribir'), CWidgetFieldColumnsList::FOOTER_DONT_OVERRIDE)
+				->addValue(_('Ninguno'), CWidgetFieldColumnsList::FOOTER_SHOW_NONE)
+				->addValue(_('Suma'), CWidgetFieldColumnsList::FOOTER_SHOW_SUM)
+				->addValue(_('Promedio'), CWidgetFieldColumnsList::FOOTER_SHOW_AVERAGE)
 				->setModern()
 		))->addClass('js-override-footer')
 	]);
@@ -410,8 +410,8 @@ $advanced_configuration
 $advanced_configuration
 	->addItem([
 		(new CLabel([
-			_('Include itemids in cell'),
-			makeHelpIcon(_('When using \'Column patterns aggregation\' include all itemids for broadcasting to other widgets'))
+			_('Incluir IDs de item en celda'),
+			makeHelpIcon(_('Al usar \'Agregación de patrones de columna\' incluir todos los IDs de item para transmitir a otros widgets'))
 		]))->addClass('js-include-itemids'),
 		(new CFormField(
 			(new CCheckBox('include_itemids'))->setChecked($data['include_itemids'])
@@ -434,13 +434,13 @@ $form
 	);
 
 $output = [
-	'header' => array_key_exists('edit', $data) ? _('Update column') : _('New column'),
+	'header' => array_key_exists('edit', $data) ? _('Actualizar columna') : _('Nueva columna'),
 	// Sparkline JS removed for Zabbix 7.0 compatibility
 	'script_inline' => $this->readJsFile('column.edit.js.php', null, ''),
 	'body' => $form->toString(),
 	'buttons' => [
 		[
-			'title' => array_key_exists('edit', $data) ? _('Update') : _('Add'),
+			'title' => array_key_exists('edit', $data) ? _('Actualizar') : _('Agregar'),
 			'keepOpen' => true,
 			'isSubmit' => true,
 			'action' => 'tablemodulerme_column_edit_form.submit();'

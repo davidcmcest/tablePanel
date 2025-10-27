@@ -5,7 +5,7 @@ use Modules\TableModuleRME\Includes\WidgetForm;
 ?>
 
 
-window.widget_tablemodulerme_form = new class extends CWidgetForm {
+window.widget_tablemodulerme_form = new class {
 
 	/**
 	 * Widget form.
@@ -36,7 +36,7 @@ window.widget_tablemodulerme_form = new class extends CWidgetForm {
 	#list_column_tmpl;
 
 	init({templateid}) {
-		this.#form = this.getForm();
+		this.#form = document.getElementById('widget-dialogue-form');
 		this.#list_columns = document.getElementById('list_columns');
 		this.#list_column_tmpl = new Template(this.#list_columns.querySelector('template').innerHTML);
 		this.#templateid = templateid;
@@ -54,8 +54,6 @@ window.widget_tablemodulerme_form = new class extends CWidgetForm {
 		jQuery(document.getElementById('hostids_')).on('change', () => this.#updateForm());
 		jQuery('[id^=layout_]').on('change', () => this.#updateForm());
 		this.#form.addEventListener('form_fields.changed', () => this.#updateForm());
-
-		this.ready();
 	}
 
 	/**
@@ -166,8 +164,6 @@ window.widget_tablemodulerme_form = new class extends CWidgetForm {
 
 	#triggerUpdate() {
 		this.#form.dispatchEvent(new CustomEvent('form_fields.changed', {detail: {}}));
-
-		this.registerUpdateEvent();
 	}
 
 	#processColumnsAction(e) {
